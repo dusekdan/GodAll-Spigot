@@ -1,0 +1,10 @@
+name: GodAll
+version: ${project.version}
+main: com.danieldusek.godall.GodAll
+authors: [ dusekdan ]
+description: Simple plugin to allow enabling/disabling god mode for everyone on the server.
+website: https://danieldusek.com
+commands:
+  godall:
+    description: "Enables or disables god mode for everyone on the server"
+    usage: "/godall on/off"
