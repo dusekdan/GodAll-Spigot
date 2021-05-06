@@ -5,11 +5,9 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public final class GodAll extends JavaPlugin {
 
-
-
     @Override
     public void onEnable() {
-        getCommand("godall").setExecutor(new GodAllCommand(this));
+        getCommand("godall").setExecutor(new GodAllCommand());
     }
 
     @Override

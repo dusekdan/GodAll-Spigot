@@ -10,14 +10,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
 public class GodAllCommand implements CommandExecutor {
-    private GodAll i;
-
-
-
-    public GodAllCommand(Plugin plugin) {
-        this.i = (GodAll) plugin;
-    }
-
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
@@ -30,7 +22,6 @@ public class GodAllCommand implements CommandExecutor {
             sender.sendMessage(Constants.MESSAGE_USE);
             return true;
         }
-
 
         for (Player player : Bukkit.getOnlinePlayers()) {
             if (args[0].equalsIgnoreCase(Constants.ON_TOGGLE)) {
