@@ -10,6 +10,12 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
 public class GodAllCommand implements CommandExecutor {
+    final private GodAll i;
+
+    public GodAllCommand(Plugin plugin) {
+        this.i = (GodAll) plugin;
+    }
+
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
@@ -23,11 +29,20 @@ public class GodAllCommand implements CommandExecutor {
             return true;
         }
 
+        if (args[0].equalsIgnoreCase(Constants.RELOAD)) {
+            reloadCommand(sender);
+            return true;
+        }
+
         for (Player player : Bukkit.getOnlinePlayers()) {
             if (args[0].equalsIgnoreCase(Constants.ON_TOGGLE)) {
+                this.i.godEnabled = true;
+
                 player.setInvulnerable(true);
                 player.sendMessage(Constants.MESSAGE_ENABLED);
             } else if (args[0].equalsIgnoreCase(Constants.OFF_TOGGLE)) {
+                this.i.godEnabled = false;
+
                 player.setInvulnerable(false);
                 player.sendMessage(Constants.MESSAGE_DISABLED);
             } else {
@@ -36,5 +51,10 @@ public class GodAllCommand implements CommandExecutor {
         }
 
         return true;
+    }
+
+    private void reloadCommand(CommandSender sender) {
+        this.i.reloadConfig();
+        sender.sendMessage(Constants.RELOAD_PERFORMED);
     }
 }

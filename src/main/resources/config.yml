@@ -1,0 +1,4 @@
+# Feature request 27 JUN 2021 - "When godall is on, automatically set god
+# for all players that are joining the server.
+# This behavior is toggle-able in the config.
+god-for-new-joiners: false
