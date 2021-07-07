@@ -21,11 +21,13 @@ public class PlayerJoinListener implements Listener {
         boolean enableGodForNewJoiners = i.getConfig().getBoolean("god-for-new-joiners", false);
 
         if (enableGodForNewJoiners) {
+            Player player = event.getPlayer();
             if (this.i.godEnabled) {
-                Player player = event.getPlayer();
-
                 player.setInvulnerable(true);
                 player.sendMessage(Constants.MESSAGE_ENABLED);
+            } else {
+                player.setInvulnerable(false);
+                player.sendMessage(Constants.MESSAGE_DISABLED);
             }
         }
     }
